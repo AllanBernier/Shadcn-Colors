@@ -182,7 +182,7 @@ export const ShadcnTemplate = () => {
                   <Line
                     dataKey="desktop"
                     type="natural"
-                    stroke="var(--color-desktop)"
+                    stroke="hsl(var(--primary))"
                     strokeWidth={2}
                     dot={false}
                   />
@@ -208,7 +208,7 @@ export const ShadcnTemplate = () => {
             </CardHeader>
             <CardContent>
               <ChartContainer config={chartConfig}>
-                <BarChart accessibilityLayer data={chartData}>
+                <BarChart accessibilityLayer data={barChartData}>
                   <CartesianGrid vertical={false} />
                   <XAxis
                     dataKey="month"
@@ -221,8 +221,9 @@ export const ShadcnTemplate = () => {
                     cursor={false}
                     content={<ChartTooltipContent indicator="dashed" />}
                   />
-                  <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
-                  <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
+                  <Bar dataKey="desktop" fill="hsl(var(--primary))" radius={4} />
+                  <Bar dataKey="mobile" fill="hsl(var(--primary))" opacity={0.5} radius={4} />
+
                 </BarChart>
               </ChartContainer>
             </CardContent>
@@ -445,7 +446,7 @@ export const ShadcnTemplate = () => {
                       style={
                         {
                           fill: "hsl(var(--primary))",
-                          opacity: 0.9,
+                          opacity: 0.5,
                         } as React.CSSProperties
                       }
                     />
