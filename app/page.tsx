@@ -4,6 +4,7 @@ import { ShadcnTemplate } from "@/components/ShadcnTemplate";
 import { StyleSelector } from "@/components/StyleSelector";
 import { TailwindIndicator } from "@/components/TailwindIndicator";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Toaster } from "@/components/ui/toaster";
 import { Colors } from "@/lib/types";
 import { useTheme } from "next-themes";
 import { useState } from "react";
@@ -44,13 +45,14 @@ export default function Home() {
   }
   
   return (
-    <div className="flex w-screen h-screen bg-background"
+    <div className="md:flex md:w-screen md:h-screen bg-background"
     >
       <TailwindIndicator />
       <StyleSelector setColors={handleColors} />
+      <Toaster />
 
 
-      <ScrollArea className="flex-1 px-6 ">
+      <ScrollArea className="flex-1 px-6 md:h-full h-[90vh]">
         <ShadcnTemplate />
       </ScrollArea>
 

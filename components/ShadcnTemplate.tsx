@@ -107,7 +107,6 @@ const initialPayments: Payment[] = [
 ]
 
 export const ShadcnTemplate = () => {
-  const [date, setDate] = useState<Date[]>([new Date()])
   const [goal, setGoal] = useState(350)
 
   function onClick(adjustment: number) {
@@ -147,7 +146,6 @@ export const ShadcnTemplate = () => {
 
   return (
     <div className="grid xl:grid-cols-2 gap-6 py-6">
-
       <div className='flex flex-col gap-6 h-full'>
         <div className='grid sm:grid-cols-2 gap-6'>
 
