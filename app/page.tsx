@@ -37,7 +37,11 @@ export default function Home() {
 
   const handleColors = (colors: Colors) => {
 
-    theme === 'light' ? setLightColors({ ...lightColors, ...colors }) : setDarkColors({ ...darkColors, ...colors })
+    if (theme === 'light') {
+      setLightColors({ ...lightColors, ...colors })
+    } else {
+      setDarkColors({ ...darkColors, ...colors })
+    }
 
     Object.entries({ ... (theme === 'light' ? lightColors : darkColors), ...colors }).forEach(([key, value]) => {
       document.documentElement.style.setProperty(key, value);

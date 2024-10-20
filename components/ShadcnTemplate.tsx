@@ -3,7 +3,6 @@
 import React, { useState } from 'react'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from './ui/card'
 import { Bar, BarChart, CartesianGrid, Line, LineChart, ResponsiveContainer, XAxis } from 'recharts'
-import { Calendar } from './ui/calendar'
 import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from './ui/chart'
 import { ChevronDown, MinusIcon, MoreHorizontal, PlusCircle, PlusIcon, Send, TrendingUp } from 'lucide-react'
 import { Button } from './ui/button'
@@ -128,21 +127,13 @@ export const ShadcnTemplate = () => {
     }
   };
 
-  const [payments, setPayments] = useState<Payment[]>(initialPayments)
+  const [payments] = useState<Payment[]>(initialPayments)
   const [filter, setFilter] = useState('')
-  const [selectedRows, setSelectedRows] = useState<number[]>([])
+  const [selectedRows] = useState<number[]>([])
 
   const filteredPayments = payments.filter(payment =>
     payment.email.toLowerCase().includes(filter.toLowerCase())
   )
-
-  const toggleRowSelection = (id: number) => {
-    setSelectedRows(prev =>
-      prev.includes(id) ? prev.filter(rowId => rowId !== id) : [...prev, id]
-    )
-  }
-
-
 
   return (
     <div className="grid xl:grid-cols-2 gap-6 py-6">

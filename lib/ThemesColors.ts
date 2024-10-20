@@ -1,4 +1,15 @@
-export const defaultColors = {
+
+
+type ThemeColors = {
+  [key: string]: string;
+};
+
+type ColorScheme = {
+  light: ThemeColors;
+  dark: ThemeColors;
+};
+
+export const defaultColors: Record<string, ColorScheme> = {
   "Zinc": {
     "dark": {
       "--background": "240 10% 3.9%",

@@ -1,29 +1,24 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from './ui/card'
 import { Button } from './ui/button'
 import { useTheme } from "next-themes"
-import { Switch } from './ui/switch'
-import { Label } from './ui/label'
 import { Colors } from '@/lib/types'
 import { defaultColors } from '@/lib/ThemesColors'
 import { getHex, hexToHsl } from '@/lib/ColorFormat'
 import { cn } from '@/lib/utils'
 import { ColorPicker } from './ui/color-picker'
-import { set } from 'date-fns'
 import { ChevronRight, Clipboard } from 'lucide-react'
 import { useToast } from '@/hooks/use-toast'
 
-
 export const StyleSelector = ({ setColors }: { setColors(colors: Colors): void }) => {
   const { toast } = useToast()
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme() as { theme: 'light' | 'dark' };
   const [raduis, setRaduis] = useState('1.0');
   const [defaultColor, setDefaultColor] = useState('Blue');
   const [open, setOpen] = useState(true);
 
-  const [customColors, setCustomColors] = useState({
+  const [customColors, setCustomColors] = useState<Record<string, string>>({
     '--background': '#FFFFFF',
     '--primary': '#FFFFFF',
     '--card': '#FFFFFF',
@@ -35,8 +30,8 @@ export const StyleSelector = ({ setColors }: { setColors(colors: Colors): void }
 
 
   useEffect(() => {
-    let UpdatedCustomColors = {}
-    Object.entries(customColors).forEach(([key, value]) => {
+    const UpdatedCustomColors = {} as Record<string, string>
+    Object.entries(customColors).forEach(([key]) => {
       UpdatedCustomColors[key] = getHex(defaultColors[defaultColor][theme][key]);
     });
 
@@ -54,12 +49,6 @@ export const StyleSelector = ({ setColors }: { setColors(colors: Colors): void }
     setColors(defaultColors[color][theme]);
   }
 
-  const toggleTheme = (theme: string) => {
-    setTheme(theme);
-    if (defaultColor != "") {
-      setColors(defaultColors[defaultColor][theme]);
-    }
-  }
 
   const handleCustom = (key: string, value: string) => {
     setCustomColors({ ...customColors, [key]: value });
