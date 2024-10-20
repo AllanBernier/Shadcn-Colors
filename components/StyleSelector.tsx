@@ -147,40 +147,6 @@ export const StyleSelector = ({ setColors }: { setColors(colors: Colors): void }
                 variant="outline" size="sm"
                 value={customColors['--primary-foreground']} onChange={(value) => handleCustom('--primary-foreground', value)} text='Text'
               />
-              <ColorPicker
-                variant="outline" size="sm"
-                value={customColors['--primary-foreground']} onChange={(value) => handleCustom('--primary-foreground', value)} text='Text'
-              />
-              <ColorPicker
-                variant="outline" size="sm"
-                value={customColors['--primary-foreground']} onChange={(value) => handleCustom('--primary-foreground', value)} text='Text'
-              />
-              <ColorPicker
-                variant="outline" size="sm"
-                value={customColors['--primary-foreground']} onChange={(value) => handleCustom('--primary-foreground', value)} text='Text'
-              />
-              <ColorPicker
-                variant="outline" size="sm"
-                value={customColors['--primary-foreground']} onChange={(value) => handleCustom('--primary-foreground', value)} text='Text'
-              />
-              <ColorPicker
-                variant="outline" size="sm"
-                value={customColors['--primary-foreground']} onChange={(value) => handleCustom('--primary-foreground', value)} text='Text'
-              />
-              <ColorPicker
-                variant="outline" size="sm"
-                value={customColors['--primary-foreground']} onChange={(value) => handleCustom('--primary-foreground', value)} text='Text'
-              />
-              <ColorPicker
-                variant="outline" size="sm"
-                value={customColors['--primary-foreground']} onChange={(value) => handleCustom('--primary-foreground', value)} text='Text'
-              />
-              <ColorPicker
-                variant="outline" size="sm"
-                value={customColors['--primary-foreground']} onChange={(value) => handleCustom('--primary-foreground', value)} text='Text'
-              />
-
-
             </div>
           </div>
 
