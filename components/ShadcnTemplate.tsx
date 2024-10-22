@@ -4,11 +4,10 @@ import React, { useState } from 'react'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from './ui/card'
 import { Bar, BarChart, CartesianGrid, Line, LineChart, ResponsiveContainer, XAxis } from 'recharts'
 import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from './ui/chart'
-import { ChevronDown, MinusIcon, MoreHorizontal, PlusCircle, PlusIcon, Send, TrendingUp } from 'lucide-react'
+import { MinusIcon, PlusCircle, PlusIcon, Send, TrendingUp } from 'lucide-react'
 import { Button } from './ui/button'
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 import { Input } from './ui/input'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './ui/dropdown-menu'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from './ui/table'
 import { Progress } from './ui/progress'
 import { Label } from './ui/label'
@@ -90,21 +89,6 @@ interface Message {
   sender: 'user' | 'agent';
 }
 
-interface Payment {
-  id: number;
-  status: 'Success' | 'Processing' | 'Failed';
-  email: string;
-  amount: number;
-}
-
-const initialPayments: Payment[] = [
-  { id: 1, status: 'Success', email: 'ken99@yahoo.com', amount: 316.00 },
-  { id: 2, status: 'Success', email: 'abe45@gmail.com', amount: 242.00 },
-  { id: 3, status: 'Processing', email: 'monserrat44@gmail.com', amount: 837.00 },
-  { id: 4, status: 'Success', email: 'silas22@gmail.com', amount: 874.00 },
-  { id: 5, status: 'Failed', email: 'carmella@hotmail.com', amount: 721.00 },
-]
-
 export const ShadcnTemplate = () => {
   const [goal, setGoal] = useState(350)
 
@@ -127,13 +111,6 @@ export const ShadcnTemplate = () => {
     }
   };
 
-  const [payments] = useState<Payment[]>(initialPayments)
-  const [filter, setFilter] = useState('')
-  const [selectedRows] = useState<number[]>([])
-
-  const filteredPayments = payments.filter(payment =>
-    payment.email.toLowerCase().includes(filter.toLowerCase())
-  )
 
   return (
     <div className="grid xl:grid-cols-2 gap-6 py-6">
