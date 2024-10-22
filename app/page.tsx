@@ -51,7 +51,7 @@ export default function Home() {
   return (
     <div className="md:flex md:w-screen md:h-screen bg-background"
     >
-      <TailwindIndicator />
+      {/* <TailwindIndicator /> */}
       <StyleSelector setColors={handleColors} />
       <Toaster />
 
