@@ -228,82 +228,6 @@ export const ShadcnTemplate = () => {
         </div>
 
 
-        {/* Payments */}
-        <Card className="w-full mx-auto ">
-          <CardHeader>
-            <CardTitle>Payments</CardTitle>
-            <CardDescription>Manage your payments.</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="flex justify-between mb-4">
-              <Input
-                className="w-64 "
-                placeholder="Filter emails..."
-                value={filter}
-                onChange={(e) => setFilter(e.target.value)}
-              />
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="outline" className="">
-                    Columns <ChevronDown className="ml-2 h-4 w-4" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="">
-                  <DropdownMenuItem>Status</DropdownMenuItem>
-                  <DropdownMenuItem>Email</DropdownMenuItem>
-                  <DropdownMenuItem>Amount</DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </div>
-            <Table>
-              <TableHeader>
-                <TableRow className="">
-                  <TableHead className="w-[100px]">Status</TableHead>
-                  <TableHead>Email</TableHead>
-                  <TableHead className="text-right">Amount</TableHead>
-                  <TableHead className="w-[60px]"></TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {filteredPayments.map((payment) => (
-                  <TableRow key={payment.id} className="">
-                    <TableCell className="font-medium">
-                      <div className="flex items-center">
-                        <div
-                          className={`w-2 h-2 rounded-full mr-2 ${payment.status === 'Success' ? 'bg-green-500' :
-                            payment.status === 'Processing' ? 'bg-yellow-500' :
-                              'bg-red-500'
-                            }`}
-                        />
-                        {payment.status}
-                      </div>
-                    </TableCell>
-                    <TableCell>{payment.email}</TableCell>
-                    <TableCell className="text-right">${payment.amount.toFixed(2)}</TableCell>
-                    <TableCell>
-                      <Button variant="ghost" className="h-8 w-8 p-0">
-                        <MoreHorizontal className="h-4 w-4" />
-                      </Button>
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-            <div className="flex justify-between items-center mt-4">
-              <div className="text-sm ">
-                {selectedRows.length} of {filteredPayments.length} row(s) selected.
-              </div>
-              <div className="space-x-2">
-                <Button variant="outline" className="">
-                  Previous
-                </Button>
-                <Button variant="outline" className="">
-                  Next
-                </Button>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
         <div className='grid sm:grid-cols-2 gap-6'>
 
           {/* This week */}
@@ -339,6 +263,103 @@ export const ShadcnTemplate = () => {
           </Card>
 
         </div>
+
+        {/* Stock */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Stock</CardTitle>
+            <CardDescription>
+              Lipsum dolor sit amet, consectetur adipiscing elit
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="w-[100px]">SKU</TableHead>
+                  <TableHead>Stock</TableHead>
+                  <TableHead>Price</TableHead>
+                  <TableHead className="w-[100px]">Size</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                <TableRow>
+                  <TableCell className="font-semibold">GGPC-001</TableCell>
+                  <TableCell>
+                    <Label htmlFor="stock-1" className="sr-only">
+                      Stock
+                    </Label>
+                    <Input id="stock-1" type="number" defaultValue="100" />
+                  </TableCell>
+                  <TableCell>
+                    <Label htmlFor="price-1" className="sr-only">
+                      Price
+                    </Label>
+                    <Input id="price-1" type="number" defaultValue="99.99" />
+                  </TableCell>
+                  <TableCell>
+                    <ToggleGroup type="single" defaultValue="s" variant="outline">
+                      <ToggleGroupItem value="s">S</ToggleGroupItem>
+                      <ToggleGroupItem value="m">M</ToggleGroupItem>
+                      <ToggleGroupItem value="l">L</ToggleGroupItem>
+                    </ToggleGroup>
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-semibold">GGPC-002</TableCell>
+                  <TableCell>
+                    <Label htmlFor="stock-2" className="sr-only">
+                      Stock
+                    </Label>
+                    <Input id="stock-2" type="number" defaultValue="143" />
+                  </TableCell>
+                  <TableCell>
+                    <Label htmlFor="price-2" className="sr-only">
+                      Price
+                    </Label>
+                    <Input id="price-2" type="number" defaultValue="99.99" />
+                  </TableCell>
+                  <TableCell>
+                    <ToggleGroup type="single" defaultValue="m" variant="outline">
+                      <ToggleGroupItem value="s">S</ToggleGroupItem>
+                      <ToggleGroupItem value="m">M</ToggleGroupItem>
+                      <ToggleGroupItem value="l">L</ToggleGroupItem>
+                    </ToggleGroup>
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell className="font-semibold">GGPC-003</TableCell>
+                  <TableCell>
+                    <Label htmlFor="stock-3" className="sr-only">
+                      Stock
+                    </Label>
+                    <Input id="stock-3" type="number" defaultValue="32" />
+                  </TableCell>
+                  <TableCell>
+                    <Label htmlFor="price-3" className="sr-only">
+                      Stock
+                    </Label>
+                    <Input id="price-3" type="number" defaultValue="99.99" />
+                  </TableCell>
+                  <TableCell>
+                    <ToggleGroup type="single" defaultValue="s" variant="outline">
+                      <ToggleGroupItem value="s">S</ToggleGroupItem>
+                      <ToggleGroupItem value="m">M</ToggleGroupItem>
+                      <ToggleGroupItem value="l">L</ToggleGroupItem>
+                    </ToggleGroup>
+                  </TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </CardContent>
+          <CardFooter className="justify-center border-t p-4">
+            <Button size="sm" variant="ghost" className="gap-1">
+              <PlusCircle className="h-3.5 w-3.5" />
+              Add Variant
+            </Button>
+          </CardFooter>
+        </Card>
+
 
       </div>
 
@@ -449,102 +470,6 @@ export const ShadcnTemplate = () => {
               <Button className='w-full' variant="outline">Cancel</Button>
             </CardFooter>
           </CardContent>
-        </Card>
-
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Stock</CardTitle>
-            <CardDescription>
-              Lipsum dolor sit amet, consectetur adipiscing elit
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead className="w-[100px]">SKU</TableHead>
-                  <TableHead>Stock</TableHead>
-                  <TableHead>Price</TableHead>
-                  <TableHead className="w-[100px]">Size</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                <TableRow>
-                  <TableCell className="font-semibold">GGPC-001</TableCell>
-                  <TableCell>
-                    <Label htmlFor="stock-1" className="sr-only">
-                      Stock
-                    </Label>
-                    <Input id="stock-1" type="number" defaultValue="100" />
-                  </TableCell>
-                  <TableCell>
-                    <Label htmlFor="price-1" className="sr-only">
-                      Price
-                    </Label>
-                    <Input id="price-1" type="number" defaultValue="99.99" />
-                  </TableCell>
-                  <TableCell>
-                    <ToggleGroup type="single" defaultValue="s" variant="outline">
-                      <ToggleGroupItem value="s">S</ToggleGroupItem>
-                      <ToggleGroupItem value="m">M</ToggleGroupItem>
-                      <ToggleGroupItem value="l">L</ToggleGroupItem>
-                    </ToggleGroup>
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell className="font-semibold">GGPC-002</TableCell>
-                  <TableCell>
-                    <Label htmlFor="stock-2" className="sr-only">
-                      Stock
-                    </Label>
-                    <Input id="stock-2" type="number" defaultValue="143" />
-                  </TableCell>
-                  <TableCell>
-                    <Label htmlFor="price-2" className="sr-only">
-                      Price
-                    </Label>
-                    <Input id="price-2" type="number" defaultValue="99.99" />
-                  </TableCell>
-                  <TableCell>
-                    <ToggleGroup type="single" defaultValue="m" variant="outline">
-                      <ToggleGroupItem value="s">S</ToggleGroupItem>
-                      <ToggleGroupItem value="m">M</ToggleGroupItem>
-                      <ToggleGroupItem value="l">L</ToggleGroupItem>
-                    </ToggleGroup>
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell className="font-semibold">GGPC-003</TableCell>
-                  <TableCell>
-                    <Label htmlFor="stock-3" className="sr-only">
-                      Stock
-                    </Label>
-                    <Input id="stock-3" type="number" defaultValue="32" />
-                  </TableCell>
-                  <TableCell>
-                    <Label htmlFor="price-3" className="sr-only">
-                      Stock
-                    </Label>
-                    <Input id="price-3" type="number" defaultValue="99.99" />
-                  </TableCell>
-                  <TableCell>
-                    <ToggleGroup type="single" defaultValue="s" variant="outline">
-                      <ToggleGroupItem value="s">S</ToggleGroupItem>
-                      <ToggleGroupItem value="m">M</ToggleGroupItem>
-                      <ToggleGroupItem value="l">L</ToggleGroupItem>
-                    </ToggleGroup>
-                  </TableCell>
-                </TableRow>
-              </TableBody>
-            </Table>
-          </CardContent>
-          <CardFooter className="justify-center border-t p-4">
-            <Button size="sm" variant="ghost" className="gap-1">
-              <PlusCircle className="h-3.5 w-3.5" />
-              Add Variant
-            </Button>
-          </CardFooter>
         </Card>
 
       </div>

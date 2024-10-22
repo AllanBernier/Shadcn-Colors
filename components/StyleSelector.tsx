@@ -8,7 +8,7 @@ import { defaultColors } from '@/lib/ThemesColors'
 import { getHex, hexToHsl } from '@/lib/ColorFormat'
 import { cn } from '@/lib/utils'
 import { ColorPicker } from './ui/color-picker'
-import { ChevronRight, Clipboard } from 'lucide-react'
+import { ChevronRight, Clipboard, Lock } from 'lucide-react'
 import { useToast } from '@/hooks/use-toast'
 import { ScrollArea } from './ui/scroll-area'
 
@@ -115,7 +115,10 @@ export const StyleSelector = ({ setColors }: { setColors(colors: Colors): void }
           <div className="mb-4">
             <h3 className="font-semibold mb-2">Random</h3>
             <div className="grid grid-cols-2 gap-2">
-              <Button variant="outline" size="sm" className='hover:bg-white hover:text-black bg-white text-black col-span-2'>Generate</Button>
+              <Button variant="outline" size="sm" className='hover:bg-white hover:text-black bg-white text-black col-span-2 '>
+                <Lock className='mr-2' />
+                <p>Generate</p>
+              </Button>
             </div>
           </div>
 
